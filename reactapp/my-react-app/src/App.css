@@ -1,0 +1,20 @@
+
+.shine-effect {
+  width: 200px;
+  border-radius: 10px;
+  transition: filter 0.3s;
+  animation: shine 2s infinite alternate;
+  box-shadow: 0 10px 20px rgba(199, 44, 44, 0.5);
+}
+
+@keyframes shine {
+  50% {
+    filter: brightness(150%);
+  }
+  0% {
+    filter: brightness(50%); /* makes it brighter */
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../reactapp/my-react-app"
+		}
+	],
+	"settings": {}
+}
