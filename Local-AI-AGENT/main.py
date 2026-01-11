@@ -5,8 +5,8 @@ from vector import retriever
 model = OllamaLLM(model="llama2")
 
 template = """
-You are an expert in answering questions about amal
-use the reviews giveb:{reviews}
+You are an expert in answering questions about mental health apps based on user reviews.
+use the reviews given:{reviews}
 Answer the question clearly and format your answer in short paragraphs, bullet points, or numbered lists when appropriate.
 Here is the question to answer: {question}
 """
@@ -21,7 +21,7 @@ def ask_agent(question: str) -> str:
     Given a user question, retrieve relevant documents and
      return the model's answer as a string.
     """
-    reviews_docs = retriever.get_relevant_documents(question)
+    reviews_docs = retriever.invoke(question)
     reviews = "\n".join([doc.page_content for doc in reviews_docs])
     prompt_value = prompt.format_prompt(question=question, reviews=reviews)
     result = model.invoke(prompt_value)

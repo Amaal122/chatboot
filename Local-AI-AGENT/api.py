@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from main import ask_agent
 from fastapi.middleware.cors import CORSMiddleware
+import logging
+import traceback
+import uvicorn
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -16,4 +19,14 @@ class Query(BaseModel):
 
 @app.post("/ask")
 async def ask(query: Query):
-    return {"response": ask_agent(query.prompt)}
+    try:
+        return {"response": ask_agent(query.prompt)}
+    except Exception as exc:  # log and surface a minimal error
+        logging.error("/ask failed: %s", exc)
+        traceback.print_exc()
+        return {"response": "Backend error"}
+
+
+if __name__ == "__main__":
+    # Run with `python api.py` for local development
+    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)

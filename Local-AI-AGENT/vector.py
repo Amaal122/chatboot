@@ -4,7 +4,7 @@ from langchain_core.documents import Document
 import os
 import pandas as pd
 
-df = pd.read_csv("amal.csv")
+df = pd.read_csv("Mental Health Chatbot Dataset.csv")
 embeddings = OllamaEmbeddings(model="mxbai-embed-large")
 
 db_location = "./chrome_langchain_db"
@@ -17,14 +17,14 @@ if add_documents:
     for i, row in df.iterrows():
         document = Document(
             page_content=row["Question"] + " " + row["Answer"],
-            metadata={"source": "amal.csv"},
+            metadata={"source": "Mental Health Chatbot Dataset.csv"},
             id=str(i)
         )
         ids.append(str(i))
         documents.append(document)
         
 vector_store = Chroma(
-    collection_name="amal",
+    collection_name="mental_health_apps_reviews",
     persist_directory=db_location,
     embedding_function=embeddings
 )
