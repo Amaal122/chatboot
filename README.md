@@ -5,7 +5,7 @@ Girly-themed AI chat experience with a Vite + React front end and FastAPI backen
 ## Stack
 - Frontend: Vite + React, Tailwind styling, lucide-react icons.
 - Backend: FastAPI, LangChain, Chroma vector store, Ollama LLMs (`llama2` for generation, `mxbai-embed-large` for embeddings).
-- Data: `amal.csv` ingested into Chroma on first run.
+- Data: `Mental_Health_Chatbot_Dataset.csv` ingested into Chroma on first run.
 
 ## Prerequisites
 - Python venv in repo root at `.venv`.
