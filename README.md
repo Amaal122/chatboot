@@ -1,6 +1,6 @@
 # chatboot
 
-Girly-themed AI chat experience with a Vite + React front end and FastAPI backend. The UI has a session sidebar, gradient chat bubbles, and a typing indicator. Prompts are posted to the FastAPI `/ask` endpoint; the backend uses LangChain with Ollama for retrieval-augmented responses from local models.
+pink-themed AI chat experience with a Vite + React front end and FastAPI backend. The UI has a session sidebar, gradient chat bubbles, and a typing indicator. Prompts are posted to the FastAPI `/ask` endpoint; the backend uses LangChain with Ollama for retrieval-augmented responses from local models.
 
 ## Stack
 - Frontend: Vite + React, Tailwind styling, lucide-react icons.
